@@ -1,0 +1,16 @@
+.appArea {
+  > div {
+    display: flex;
+    gap: 30px;
+
+    > div {
+      width: 600px;
+      height: 600px;
+      background-color: lightcoral;
+    }
+  }
+}
+
+hr {
+  margin: 100px 0;
+}
