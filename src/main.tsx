@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client'
 import './index.module.scss'
 import {Provider} from 'react-redux'
 import {App} from "./App.tsx"
-import {store} from "./redux/Store.ts";
+import {store} from "./redux/store.ts";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <Provider store={store}>
