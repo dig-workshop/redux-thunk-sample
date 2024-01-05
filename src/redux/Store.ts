@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { textSlice } from './textSlice.ts'
-import {pokeSlice} from "./pokeSlice.ts";
+import { textSlice } from './TextSlice.ts'
+import {pokemonSlice} from "./PokemonSlice.ts";
 
 export const store = configureStore({
     reducer: {
         textReducer: textSlice.reducer,
-        pokeReducer: pokeSlice.reducer
+        pokeReducer: pokemonSlice.reducer
     },
 })
 

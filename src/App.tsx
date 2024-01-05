@@ -3,11 +3,11 @@ import axios, {AxiosResponse} from 'axios'
 import {ChildComponent} from "./useStateComponents/ChildComponent.tsx";
 import {useState} from "react";
 import {ReduxChildComponent} from "./reduxComponents/ReduxChildComponent.tsx";
-import {setReduxText} from "./redux/textSlice.ts";
+import {setReduxText} from "./redux/TextSlice.ts";
 import {useDispatch} from "react-redux";
-import {getAndSetPokemonThunk} from "./redux/getAndSetPokemonThunk.ts";
+import {getAndSetPokemonThunk} from "./redux/PokemonThunk.ts";
 import {AppDispatch} from "./redux/store.ts";
-import {setPokemon} from "./redux/pokeSlice.ts";
+import {setPokemon} from "./redux/PokemonSlice.ts";
 import {ReduxThunkChildComponent} from "./reduxThunkComponents/ReduxThunkChildComponent.tsx";
 
 type PokeApiResponse = {
@@ -35,11 +35,13 @@ export const App = () => {
     }
 
     const reduxClickEventHandler = async () => {
+        // 色々な部分で非同期処理とdispatchを書かなければいけない
         const pokeObj = await getRandomPokemon()
         dispatch(setPokemon(pokeObj))
     }
 
     const reduxThunkClickEventHandler = async () => {
+        // 1行書くだけで済む
         dispatch(getAndSetPokemonThunk())
     }
 
@@ -68,7 +70,8 @@ export const App = () => {
 
             <h1>【本題】非同期処理を含むステート更新はRedux-Thunkがおすすめ！</h1>
             <p>非同期処理をした後にその結果をReduxやUseContextのステートに入れるならRedux-Thunkを使うとクール！</p>
-            <p>動作は一緒だが、コード実装で便利になるよん</p>
+            <p>動作は一緒だけどコード実装で便利になるよん</p>
+            <p>Redux-Thunkを使うとpromiseのpending,fulfilled,rejectedの実装が楽になるよん</p>
             <div>
                 <div>
                     <h2>Reduxの場合</h2>
