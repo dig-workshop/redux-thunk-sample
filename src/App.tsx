@@ -1,4 +1,4 @@
-import styles from './App.module.scss'
+import styles from './styles/App.module.scss'
 import axios, {AxiosResponse} from 'axios'
 import {ChildComponent} from "./useStateComponents/ChildComponent.tsx";
 import {useState} from "react";
