@@ -10,7 +10,7 @@ const testConfig: InlineConfig = {
   environment: 'jsdom',
   setupFiles: ['test-setup.js'],
   globals: true,
-  include: ['./src/**/*.test.{tsx,ts}'],
+  include: ['./tests/*.test.{tsx,ts}'],
 }
 
 export default defineConfig({
