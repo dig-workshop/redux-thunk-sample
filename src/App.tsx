@@ -24,24 +24,30 @@ type PokeApiResponse = {
 export const App = () => {
     const [text, setText] = useState('')
     const dispatch: AppDispatch = useDispatch()
-
-    const getRandomPokemon = async () => {
-        const randomNum = Math.floor(Math.random()* 1000) + 1
-        const res:AxiosResponse<PokeApiResponse> = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
-        return {
-            name:res.data.name,
-            imageUrl:res.data.sprites.other.showdown.front_default
-        }
-    }
+    console.log('親コンポーネント')
 
     const reduxClickEventHandler = async () => {
-        // 色々な部分で非同期処理とdispatchを書かなければいけない
+
+        // ポケモンをランダムに取得する関数
+        const getRandomPokemon = async () => {
+            const randomNum = Math.floor(Math.random()* 1000) + 1
+            const res:AxiosResponse<PokeApiResponse> = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomNum}`)
+            return {
+                name:res.data.name,
+                imageUrl:res.data.sprites.other.showdown.front_default
+            }
+        }
+
+        // 非同期処理の結果取得を待って、dispatch（ステートの更新）をする必要がある。
+        // いろんなコンポーネントで書くとなると冗長なコードが増える
         const pokeObj = await getRandomPokemon()
         dispatch(setPokemon(pokeObj))
     }
 
     const reduxThunkClickEventHandler = async () => {
-        // 1行書くだけで済む
+        // dispatchにアクションを指定するだけでOK
+        // reducerで非同期処理の状態に応じた処理ができる（redux-thunkではない場合、スクラッチで書く必要があるのでコードが増える）
+        // viewの汚染を防げる
         dispatch(getAndSetPokemonThunk())
     }
 
@@ -50,6 +56,7 @@ export const App = () => {
             <h1>UseStateとReduxの違い</h1>
             <p>値のバケツリレーをしなくて良くなる</p>
             <p>バケツリレーを解消するだけならUseContextでもOK</p>
+            <p>必要なコンポーネントのみ再レンダリングするため、パフォーマンスの向上</p>
             <p>多くのアプリの場合、非同期処理が入るからReduxの方がおすすめ（この後説明するRedux-Thunkがあるから）</p>
             <div>
                 <div>
@@ -72,7 +79,7 @@ export const App = () => {
 
             <h1>【本題】非同期処理を含むステート更新はRedux-Thunkがおすすめ！</h1>
             <p>非同期処理をした後にその結果をReduxやUseContextのステートに入れるならRedux-Thunkを使うとクール！</p>
-            <p>動作は一緒だけどコード実装で便利になるよん</p>
+            <p>動作は一緒だけどコード実装で便利になる（実装、テストコードの低減）</p>
             <p>Redux-Thunkを使うとpromiseのpending,fulfilled,rejectedの実装が楽になるよん</p>
             <div>
                 <div>

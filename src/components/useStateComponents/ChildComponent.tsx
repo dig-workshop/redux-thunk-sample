@@ -6,7 +6,7 @@ type Props = {
 }
 
 export const ChildComponent = (props: Props) => {
-
+    console.log('子コンポーネント')
     return (
         <div className={styles.childComponentArea}>
             <h3>子</h3>

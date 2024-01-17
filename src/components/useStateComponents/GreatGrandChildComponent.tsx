@@ -5,7 +5,7 @@ type Props = {
 }
 
 export const GreatGrandChildComponent = (props: Props) => {
-
+    console.log('ひ孫コンポーネント')
     return (
         <div className={styles.greatGrandChildComponentArea}>
             <h3>ひ孫</h3>
