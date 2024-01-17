@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {getAndSetPokemonThunk} from "./PokemonThunk.ts";
+import {getAndSetPokemonThunk} from "../thunks/PokemonThunk.ts";
 
 export type PokeObj = {
     status: 'initial' | 'pending' | 'fulfilled' | 'rejected',
@@ -7,6 +7,7 @@ export type PokeObj = {
     imageUrl: string
 }
 
+// ステートの型と初期値
 const initialState: PokeObj = {
     status: 'initial',
     name: 'initial',
@@ -50,4 +51,5 @@ export const pokemonSlice = createSlice({
     }
 })
 
+// 各コンポーネントで使用するためにactionをエクスポート
 export const {setPokemon} = pokemonSlice.actions

@@ -1,6 +1,6 @@
 import {createAsyncThunk} from '@reduxjs/toolkit'
 import axios from "axios";
-import {PokeObj} from "./PokemonSlice.ts";
+import {PokeObj} from "../slices/PokemonSlice.ts";
 
 export const getAndSetPokemonThunk = createAsyncThunk(
     'getAndSetPokemonThunk',

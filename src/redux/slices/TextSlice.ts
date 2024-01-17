@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 
+// ステートの型と初期値
 const initialState: String = ''
 
 export const textSlice = createSlice({
@@ -12,4 +13,5 @@ export const textSlice = createSlice({
     }
 })
 
+// 各コンポーネントで使用するためにactionをエクスポート
 export const { setReduxText } = textSlice.actions

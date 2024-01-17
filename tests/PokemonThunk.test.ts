@@ -1,5 +1,5 @@
 import {vi} from 'vitest'
-import {getAndSetPokemonThunk} from "../src/redux/PokemonThunk.ts";
+import {getAndSetPokemonThunk} from "../src/redux/thunks/PokemonThunk.ts";
 import axios from "axios";
 
 vi.mock('axios')

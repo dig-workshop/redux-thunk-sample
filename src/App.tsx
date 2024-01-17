@@ -1,14 +1,14 @@
-import styles from './styles/App.module.scss'
-import axios, {AxiosResponse} from 'axios'
-import {ChildComponent} from "./useStateComponents/ChildComponent.tsx";
+import styles from './App.module.scss'
+import {ChildComponent} from "./components/useStateComponents/ChildComponent.tsx";
 import {useState} from "react";
-import {ReduxChildComponent} from "./reduxComponents/ReduxChildComponent.tsx";
-import {setReduxText} from "./redux/TextSlice.ts";
+import {ReduxChildComponent} from "./components/reduxComponents/ReduxChildComponent.tsx";
+import {setReduxText} from "./redux/slices/TextSlice.ts";
 import {useDispatch} from "react-redux";
-import {getAndSetPokemonThunk} from "./redux/PokemonThunk.ts";
-import {AppDispatch} from "./redux/store.ts";
-import {setPokemon} from "./redux/PokemonSlice.ts";
-import {ReduxThunkChildComponent} from "./reduxThunkComponents/ReduxThunkChildComponent.tsx";
+import {AppDispatch} from "./redux/Store.ts";
+import axios, {AxiosResponse} from 'axios'
+import {setPokemon} from "./redux/slices/PokemonSlice.ts";
+import {getAndSetPokemonThunk} from "./redux/thunks/PokemonThunk.ts";
+import {ReduxThunkChildComponent} from "./components/reduxThunkComponents/ReduxThunkChildComponent.tsx";
 
 type PokeApiResponse = {
     name:string,
@@ -23,7 +23,7 @@ type PokeApiResponse = {
 
 export const App = () => {
     const [text, setText] = useState('')
-    const dispatch:AppDispatch = useDispatch()
+    const dispatch: AppDispatch = useDispatch()
 
     const getRandomPokemon = async () => {
         const randomNum = Math.floor(Math.random()* 1000) + 1
@@ -54,13 +54,15 @@ export const App = () => {
             <div>
                 <div>
                     <h2>UseStateの場合</h2>
-                    <label htmlFor="useStateInput">ひ孫コンポーネントに渡すステートの値：</label>
+                    <h3>親</h3>
+                    <label htmlFor="useStateInput">ステートの値: </label>
                     <input name="useStateInput" type="text" onChange={(e) => setText(e.target.value)}/>
                     <ChildComponent text={text}/>
                 </div>
                 <div>
                     <h2>Reduxの場合</h2>
-                    <label htmlFor="reduxInput">ひ孫コンポーネントに渡すステートの値：</label>
+                    <h3>親</h3>
+                    <label htmlFor="reduxInput">ステートの値: </label>
                     <input name="reduxInput" type="text" onChange={(e) => dispatch(setReduxText(e.target.value))}/>
                     <ReduxChildComponent/>
                 </div>
@@ -75,11 +77,13 @@ export const App = () => {
             <div>
                 <div>
                     <h2>Reduxの場合</h2>
+                    <h3>親</h3>
                     <button onClick={reduxClickEventHandler}>pokeAPIのレスポンスをreduxステートにセット</button>
                     <ReduxThunkChildComponent />
                 </div>
                 <div>
                     <h2>Redux-Thunkの場合</h2>
+                    <h3>親</h3>
                     <button onClick={reduxThunkClickEventHandler}>pokeAPIのレスポンスをreduxステートにセット</button>
                     <ReduxThunkChildComponent />
                 </div>
