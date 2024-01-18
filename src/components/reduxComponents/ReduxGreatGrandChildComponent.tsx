@@ -4,10 +4,10 @@ import {RootState} from "../../redux/Store.ts";
 
 export const ReduxGreatGrandChildComponent = () => {
     const text = useSelector((state: RootState) => state.textReducer)
-    console.log('reduxひ孫コンポーネント')
+    console.log('Reduxひ孫')
     return (
         <div className={styles.greatGrandChildComponentArea}>
-            <h3>ひ孫</h3>
+            <h3>Reduxひ孫</h3>
             <p>受け取った値: {text}</p>
         </div>
     )

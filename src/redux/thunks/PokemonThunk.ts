@@ -13,7 +13,6 @@ export const getAndSetPokemonThunk = createAsyncThunk(
         return axios.get(`https://pokeapi.co/api/v2/pokemon/${randomNum}`, {timeout: 2000})
             .then((res) => {
                 return {
-                    status: 'fulfilled',
                     name: res.data.name,
                     imageUrl: res.data.sprites.other.showdown.front_default
                 } as PokeObj

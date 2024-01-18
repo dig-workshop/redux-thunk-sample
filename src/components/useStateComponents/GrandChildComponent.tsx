@@ -6,10 +6,10 @@ type Props = {
 }
 
 export const GrandChildComponent = (props: Props) => {
-    console.log('孫コンポーネント')
+    console.log('UseState孫')
     return (
         <div className={styles.grandChildComponentArea}>
-            <h3>孫</h3>
+            <h3>UseState孫</h3>
             <GreatGrandChildComponent text={props.text}/>
         </div>
     )

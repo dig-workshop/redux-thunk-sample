@@ -5,7 +5,7 @@ import axios from "axios";
 vi.mock('axios')
 
 describe('PokemonThunk Tests', () => {
-    test('getAndSetPokemonThunkを呼んだ時、axiosを正しい引数で呼んでいること', async () => {
+    it('getAndSetPokemonThunkを呼んだ時、axiosを正しい引数で呼んでいること', async () => {
         vi.spyOn(Math, 'floor').mockReturnValue(0);
 
         // コンポーネント外でdispatch無しでthunk関数を呼ぶにはこのようにする（特許出願中）
@@ -14,7 +14,8 @@ describe('PokemonThunk Tests', () => {
         expect(axios.get).toHaveBeenCalledWith('https://pokeapi.co/api/v2/pokemon/1', {timeout: 2000})
     })
 
-    test('getAndSetPokemonThunkを呼んだ時、payloadの値が正しい値になっていること', async () => {
+    it('getAndSetPokemonThunkを呼んだ時、payloadの値が正しい値になっていること', async () => {
+        // pokeAPIの返り値をモック
         vi.mocked(axios.get).mockResolvedValue({
             data: {
                 name: 'hoge1',
