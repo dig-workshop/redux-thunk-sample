@@ -40,8 +40,8 @@ reduxのView, Action, Dispatcher, Storeの4つの要素の理解を深めるた�
 - 一連の処理（ユーザーがボタンを押した時など）の中で非同期処理とステートの更新を行うような場合に有用。  
 例えばAPIを実行してその結果をステートに反映するような時、通常はAPIをfetchして非同期処理を待ってからステートに反映させると思いますが、 Redux-Thunkでは下記のgifのようになります。  
 - Redux-Thunkではdispatchするときにaction以外に非同期関数を渡すことができ、ミドルウェア(Redux-Thunk)が処理を待ってからステートを更新する。  
-![Redux-Anim](https://cdn.avinton.com/wp-content/uploads/2022/06/redux-basics-animation-1b.gif)
-![Redux-Thunk-Anim](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1545070/154dfda3-ddb8-b23c-1011-c618d4b314cb.gif)
+
+![Redux-Anim](https://redux.js.org/assets/images/ReduxAsyncDataFlowDiagram-d97ff38a0f4da0f327163170ccc13e80.gif)
 出典：Redux Async Data Flow (https://redux.js.org/tutorials/fundamentals/part-6-async-logic#redux-async-data-flow)
 
 ### redux-thunkのインストールコマンド
