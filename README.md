@@ -39,7 +39,7 @@ reduxのView, Action, Dispatcher, Storeの4つの要素の理解を深めるた�
 - Redux Style Guide優先度Cのルールにも非同期ロジックにRedux Thunkを使うということが書かれている公式推奨の非同期用ミドルウェア。  
 - 一連の処理（ユーザーがボタンを押した時など）の中で非同期処理とステートの更新を行うような場合に有用。  
 例えばAPIを実行してその結果をステートに反映するような時、通常はAPIをfetchして非同期処理を待ってからステートに反映させると思いますが、 Redux-Thunkでは下記のgifのようになります。  
-- Redux-Thunkではdispatchするときにaction以外に非同期関数を渡すことができ、ミドルウェア(Redux-Thunk)が処理を待ってからステートを更新する。
+- Redux-Thunkではdispatchするときにaction以外に非同期関数を渡すことができ、ミドルウェア(Redux-Thunk)が処理を待ってからステートを更新する。  
 
 ![Redux-Thunk-Anim](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/1545070/154dfda3-ddb8-b23c-1011-c618d4b314cb.gif)
 出典：Redux Async Data Flow (https://redux.js.org/tutorials/fundamentals/part-6-async-logic#redux-async-data-flow)
