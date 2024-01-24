@@ -18,6 +18,7 @@ View, Action, Dispatcher, Storeの4つの要素で構成され、単方向へデ
 3. ActionをもとにReducerがStateを更新
 4. StateをもとにUIを更新
 
+![Redux-Anim](https://redux.js.org/assets/images/ReduxDataFlowDiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)
 ![Redux-Anim](https://cdn.avinton.com/wp-content/uploads/2022/06/redux-basics-animation-1b.gif)
 出典：Redux Application Data Flow (https://redux.js.org/tutorials/essentials/part-1-overview-concepts#redux-application-data-flow)
 
