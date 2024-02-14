@@ -58,10 +58,12 @@ export const DifferenceUseReduxAndReduxThunk = () => {
 
     return (
         <div className={styles.differenceArea}>
-            <h1>【本題】非同期処理を含むステート更新はRedux-Thunkがおすすめ！</h1>
-            <p>非同期処理後にその結果をReduxやUseContextのステートに入れるならRedux-Thunkを使うとクール！</p>
-            <p>動作は一緒だけどコード実装で便利になる（実装、テストコードの低減）</p>
-            <p>Redux-Thunkを使うとpromiseのpending,fulfilled,rejectedの実装が楽になるよん</p>
+            <h1>Redux-Thunkの良いところ</h1>
+            <h2>非同期処理の状態に応じてステート管理ができる（pending,fulfilled,rejected）</h2>
+            <p>例えば下のボタンのような実装。pending,fulfilled,rejectedの状態を書くのって結構大変。そしていろんなviewに実装しなければならないとなるとコードが増える...</p>
+            <p>こんな処理でもredux-thunkなら、viewに1行で書くだけで終わる。<strong>（下のボタンは同じ動作をしている項に見えるが、コードは異なるのでコード見てください）</strong></p>
+            <h2>テストはredux側に集約される</h2>
+            <p>メリットなのか分からん。（個人的にはpromiseの状態のテストが見易いから好き。sliceのテスト見て〜）</p>
             <div>
                 <div>
                     <h2>Reduxの場合</h2>
